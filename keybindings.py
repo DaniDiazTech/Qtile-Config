@@ -86,6 +86,7 @@ class Keybindings:
             Key([self.mod, self.alt], "space", lazy.spawn("dmenu_run -p 'Run: '"),
                 desc="Run Dmenu"),
 
+            ### THESE ARE MY PREFERED APPS YOU CAN SWITCH KEYBINDINGS JUST BY TYPING THE PATH TO YOUR APPS #####
             # Applications hotkeys
             # Apps are opened with Super + left self.alt keys
             Key([self.mod, self.alt], "d", lazy.spawn(

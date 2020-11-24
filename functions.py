@@ -46,5 +46,24 @@ class Functions(object):
 		return __inner
 
 
+class PWA:
+	def __init__(self):
+		pass
+
+	@staticmethod	
+	def notion():
+		return "brave --profile-directory=Default --app=https://notion.so"
+
+	@staticmethod
+	def music():
+		return  "/usr/lib/brave-beta/brave --profile-directory=Default --app-id=cinhimbnkkaeohfgghhklpknlkffjgod"
+
+	@staticmethod
+	def spotify():
+		return "/usr/lib/brave-beta/brave --profile-directory=Default --app-id=pjibgclleladliembfgfagdaldikeohf"
+
+	@staticmethod
+	def youtube():
+		return "brave --user-data-dir=Default --app=https://www.youtube.com"
 if __name__ == "__main__":
     pass

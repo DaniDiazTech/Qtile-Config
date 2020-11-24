@@ -16,7 +16,7 @@ Install Qtile and other dependencies.
 ### For Arch Linux
 
 ```
-sudo pacman -S qtile picom dmenu nitrogen xorg-server-xephyr
+sudo pacman -S qtile picom rofi nitrogen xorg-server-xephyr
 ```
 
 The [xephyr](https://wiki.archlinux.org/index.php/Xephyr) package is for testing  purposes.
@@ -28,7 +28,7 @@ The [xephyr](https://wiki.archlinux.org/index.php/Xephyr) package is for testing
 For Debian, Ubuntu and derivates [here](http://docs.qtile.org/en/latest/manual/install/ubuntu.html) is the qtile installation guide.
 #### Dependencies
 ```
-sudo apt install picom dmenu xserver-xephyr nitrogen
+sudo apt install picom rofi xserver-xephyr nitrogen
 ```
 ## Cloning the config files
 ```

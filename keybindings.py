@@ -1,19 +1,20 @@
+
 from libqtile.config import Click, Drag, Group, Key
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 from libqtile import layout
 
 # Import the function that move the window to the next and prev group
-from functions import Functions
+from functions import Functions, PWA
 
 
 class Keybindings:
-    def __init__(self, mod="mod4", alt="mod1", altgr="mod5", termite="termite"):
-        self.mod = mod
-        self.alt = alt
-        self.altgr = altgr
-        self.termite = termite
-
+    def __init__(self):
+        self.mod = "mod4"
+        self.alt = "mod1"
+        self.altgr = "mod5"
+        self.termite = "termite"
+        self.shift = "shift"
     def init_keys(self):
 
         #################### CUSTOM KEYS  ##########################
@@ -83,8 +84,8 @@ class Keybindings:
                 lazy.restart(), desc="Restart qtile"),
             Key([self.mod, "control"], "q",
                 lazy.shutdown(), desc="Shutdown qtile"),
-            Key([self.mod, self.alt], "space", lazy.spawn("dmenu_run -p 'Run: '"),
-                desc="Run Dmenu"),
+            Key([self.mod, self.alt], "space", lazy.spawn('rofi -modi "drun,run,window,ssh" -show drun'),
+                desc="Run Rofi"),
 
             ### THESE ARE MY PREFERED APPS YOU CAN SWITCH KEYBINDINGS JUST BY TYPING THE PATH TO YOUR APPS #####
             # Applications hotkeys
@@ -113,14 +114,22 @@ class Keybindings:
             # PWA hotkeys
 
             Key([self.mod, self.alt], "s",
-                lazy.spawn(
-                    "/usr/lib/brave-beta/brave --profile-directory=Default --app-id=pjibgclleladliembfgfagdaldikeohf"),
+                lazy.spawn(PWA.spotify()),
                 desc="Open Spotify PWA"),  # In others system the PWA id will be different
 
-            Key([self.mod, self.alt], "y",
-                lazy.spawn(
-                    "/usr/lib/brave-beta/brave --profile-directory=Default --app-id=cinhimbnkkaeohfgghhklpknlkffjgod"),
+            Key([self.mod, self.alt], "m",
+                lazy.spawn(PWA.music()),
                 desc="Open Youtube Music PWA"),
+
+            # My own created PWA's
+            Key([self.mod, self.alt], "y",
+                lazy.spawn(PWA.youtube()),
+                desc="Open Youtube PWA"),
+            
+            Key([self.mod, self.alt], "l",
+                lazy.spawn(PWA.notion()),
+                desc="Open my custom Notion PWA"),
+
 
             # Media hotkeys
             Key([self.mod], 'Up', lazy.spawn('pulseaudio-ctl up 5')),
@@ -128,8 +137,9 @@ class Keybindings:
             Key([self.mod], 'm', lazy.spawn('pulseaudio-ctl set 1')),
 
             # Screenshots
-            Key([], "Print", lazy.spawn('flameshot gui')),
-            Key([self.alt], "Print", lazy.spawn('flameshot full -c')),
+            Key([], "Print", lazy.spawn('xfce4-screenshooter')),
+            Key([self.alt], "Print", lazy.spawn('xfce4-screenshooter -f -c')),
+            Key([self.shift], "Print", lazy.spawn("xfce4-screenshooter -f -s /home/daniel/Pictures/Screenshots/")),
         ]
 
     def init_keys_groups(self, group_names):

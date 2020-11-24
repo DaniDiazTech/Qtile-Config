@@ -15,71 +15,56 @@ class Keybindings:
         self.altgr = "mod5"
         self.termite = "termite"
         self.shift = "shift"
+        self.control = "control"
     def init_keys(self):
 
         #################### CUSTOM KEYS  ##########################
         return [
-            # Switch between windows in current stack pane
-            Key([self.mod], "k", lazy.layout.down(),
-                desc="Move focus down in stack pane"),
-            Key([self.mod], "j", lazy.layout.up(),
-                desc="Move focus up in stack pane"),
-
-            # Move windows up or down in current stack
-            Key([self.mod, "control"], "k", lazy.layout.shuffle_down(),
-                desc="Move window down in current stack "),
-            Key([self.mod, "control"], "j", lazy.layout.shuffle_up(),
-                desc="Move window up in current stack "),
-            Key([self.mod, "control"], "h", lazy.layout.swap_left()),
-            Key([self.mod, "control"], "l", lazy.layout.swap_right()),
-
+            
+            ############   BINDINGS FOR MONADTALL   ##############
+            Key([self.mod], "h", lazy.layout.left()),
+            Key([self.mod], "l", lazy.layout.right()),
+            Key([self.mod], "j", lazy.layout.down()),
+            Key([self.mod], "k", lazy.layout.up()),
+            Key([self.mod, "shift"], "h", lazy.layout.swap_left()),
+            Key([self.mod, "shift"], "l", lazy.layout.swap_right()),
+            Key([self.mod, "shift"], "j", lazy.layout.shuffle_down()),
+            Key([self.mod, "shift"], "k", lazy.layout.shuffle_up()),
+            Key([self.mod], "i", lazy.layout.grow()),
+            Key([self.mod], "m", lazy.layout.shrink()),
+            Key([self.mod], "n", lazy.layout.normalize()),
+            Key([self.mod], "o", lazy.layout.maximize()),
+            Key([self.mod, "shift"], "space", lazy.layout.flip()),
+            
+            
             # Move screen to next and previous workspace
-            Key([self.mod], "l", lazy.screen.next_group(),
+            Key([self.control], "k", lazy.screen.next_group(),
                 desc="Move screen to the next workspace"),
-            Key([self.mod], "h", lazy.screen.prev_group(),
+            Key([self.control], "j", lazy.screen.prev_group(),
                 desc="Move screen to the previous workspace"),
 
-            ####### MOVE WINDOWS TO PREV AND NEXT GROUPS ######
-            Key([self.mod, "shift"], "l", Functions.window_to_next_group(),
-                desc="Move window and screen to the next workspace"),
-            Key([self.mod, "shift"], "h", Functions.window_to_prev_group(),
-                desc="Move window and screen to the previous workspace"),
-
-            ####### MOVE WINDOWS TO PREV AND NEXT GROUPS ######
-            Key([self.mod, self.altgr], "w", Functions.kill_all_windows(),
-                desc="Kill all windows in the workspace"),
+            # Move window to next group
+            Key([self.control, self.shift], "k", Functions.window_to_next_group(),
+                desc="Move screen to the next workspace"),
+            Key([self.control, self.shift], "j", Functions.window_to_prev_group(),
+                desc="Move screen to the previous workspace"),
+            
+            # Kill Functions
             Key([self.mod, self.altgr], "c", Functions.kill_all_windows_minus_current(),
                 desc="Kill all windows except current in the workspace"),
-
-            # Switch window focus to other pane(s) of stack
-            Key([self.mod], "space", lazy.layout.next(),
-                desc="Switch window focus to other pane(s) of stack"),
-
-            # Swap panes of split stack
-            Key([self.mod, "shift"], "space", lazy.layout.rotate(),
-                desc="Swap panes of split stack"),
-
-            # Toggle between split and unsplit sides of stack.
-            # Split = all windows displayed
-            # Unsplit = 1 window displayed, like Max layout, but still with
-            # multiple stack panes
-            Key([self.mod, "shift"], "Return", lazy.layout.toggle_split(),
-                desc="Toggle between split and unsplit sides of stack"),
-            Key([self.mod], "Return", lazy.spawn(
-                self.termite), desc="Launch terminal"),
+            Key([self.mod, self.altgr], "w", Functions.kill_all_windows(),
+                desc="Kill all windows except current in the workspace"),
 
             # Toggle between different layouts as defined below
-            Key([self.mod], "Tab", lazy.next_layout(),
+            Key([self.mod, self.alt], "Tab", lazy.next_layout(),
                 desc="Toggle between layouts"),
-            Key([self.mod], "w", lazy.window.kill(), desc="Kill focused window"),
 
-            # Normalize or Maximize windows
-            Key([self.mod, self.altgr], "n",
-                lazy.layout.normalize(), desc="Normalize current windows"),
-            Key([self.mod, self.altgr], "m",
-                lazy.layout.maximize(), desc="Normalize current windows"),
 
             # Basic Commands
+            Key([self.mod], "w", lazy.window.kill(), desc="Kill focused window"),
+            
+            Key([self.mod], "Return", lazy.spawn(
+                self.termite), desc="Launch terminal"),
             Key([self.mod, "control"], "r",
                 lazy.restart(), desc="Restart qtile"),
             Key([self.mod, "control"], "q",
@@ -134,7 +119,6 @@ class Keybindings:
             # Media hotkeys
             Key([self.mod], 'Up', lazy.spawn('pulseaudio-ctl up 5')),
             Key([self.mod], 'Down', lazy.spawn('pulseaudio-ctl down 5')),
-            Key([self.mod], 'm', lazy.spawn('pulseaudio-ctl set 1')),
 
             # Screenshots
             Key([], "Print", lazy.spawn('xfce4-screenshooter')),
@@ -149,11 +133,11 @@ class Keybindings:
         keys = []
 
         for icon in group_names:
-            indx = (icon[0]).lower()
+            index = (icon[0]).lower()
 
             keys += [
-                Key([self.mod, 'control'], indx, lazy.group[icon].toscreen()),
-                Key([self.mod, 'shift'], indx, lazy.window.togroup(icon, switch_group=True))]
+                Key([self.mod, 'control'], index, lazy.group[icon].toscreen()),
+                Key([self.mod, 'shift'], index, lazy.window.togroup(icon, switch_group=True))]
 
         return keys
 

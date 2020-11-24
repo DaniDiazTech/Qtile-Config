@@ -3,6 +3,7 @@ from libqtile import bar, layout, widget
 from libqtile.lazy import lazy
 from libqtile.config import Screen
 
+from functions import PWA
 # widget_defaults = dict(
 #     font="Ubuntu Mono",
 #     fontsize = 12,
@@ -183,6 +184,8 @@ class MyWidgets:
             widget.Clock(
                 foreground=self.colors[2],
                 background=self.colors[4],
+                mouse_callbacks={
+                    "Button1": lambda qtile: qtile.cmd_spawn(PWA.notion())},
                 format="%B %d  [ %H:%M ]"
             ),
             widget.Sep(

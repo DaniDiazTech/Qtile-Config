@@ -49,15 +49,7 @@ from keybindings import Keybindings, Mouse
 from widgets import MyWidgets
 from layouts import Layouts
 from groups import CreateGroups
-
-group_icons = ["B   ",
-               "D  ",
-               "T  ",
-               "V  ",
-               "M  ",
-               "C  ",
-               "E  "]
-
+from icons import group_icons
 
 ###### MAIN ######
 if __name__ in ["config", "__main__"]:
@@ -99,6 +91,8 @@ floating_layout = layout.Floating(float_rules=[
     {'wmclass': 'notification'},
     {'wmclass': 'splash'},
     {'wmclass': 'toolbar'},
+    {'wmclass': 'xephyr'},
+    {'wmclass': 'Xephyr'},
     {'wmclass': 'confirmreset'},  # gitk
     {'wmclass': 'makebranch'},  # gitk
     {'wmclass': 'maketag'},  # gitk

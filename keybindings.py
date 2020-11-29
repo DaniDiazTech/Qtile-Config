@@ -1,11 +1,10 @@
 
-from libqtile.config import Click, Drag, Group, Key
+from libqtile.config import Click, Drag, Key
 from libqtile.lazy import lazy
-from libqtile.utils import guess_terminal
-from libqtile import layout
 
 # Import the function that move the window to the next and prev group
 from functions import Functions, PWA
+# from icons import group_icons
 
 
 class Keybindings:
@@ -16,6 +15,7 @@ class Keybindings:
         self.termite = "termite"
         self.shift = "shift"
         self.control = "control"
+
     def init_keys(self):
 
         #################### CUSTOM KEYS  ##########################

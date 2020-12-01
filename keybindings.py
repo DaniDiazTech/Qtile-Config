@@ -61,7 +61,7 @@ class Keybindings:
 
 
             # Basic Commands
-            Key([self.mod], "w", lazy.window.kill(), desc="Kill focused window"),
+            Key([self.mod], "w",  lazy.window.kill(), desc="Kill focused window"),
             
             Key([self.mod], "Return", lazy.spawn(
                 self.termite), desc="Launch terminal"),
@@ -69,12 +69,13 @@ class Keybindings:
                 lazy.restart(), desc="Restart qtile"),
             Key([self.mod, "control"], "q",
                 lazy.shutdown(), desc="Shutdown qtile"),
-            Key([self.mod, self.alt], "space", lazy.spawn('rofi -modi "drun,run,window,ssh" -show drun'),
+            Key([self.mod], "space", lazy.spawn('rofi -modi "drun,run,window,ssh" -show drun'),
                 desc="Run Rofi"),
 
             ### THESE ARE MY PREFERED APPS YOU CAN SWITCH KEYBINDINGS JUST BY TYPING THE PATH TO YOUR APPS #####
             # Applications hotkeys
-            # Apps are opened with Super + left self.alt keys
+            Key([self.mod], "e", lazy.spawn("thunar"), desc="Open Thunar"),
+            # Most apps are opened with Super + left self.alt keys
             Key([self.mod, self.alt], "d", lazy.spawn(
                 "emacs"), desc="Open Doom Emacs"),
             Key([self.mod, self.alt], "v", lazy.spawn("gvim"), desc="Open Gvim"),

@@ -21,11 +21,12 @@ class MyWidgets:
                        ["#434758", "#434758"],
                        ["#ffffff", "#ffffff"],  # font color for group names
                        # border line color for current tab
-                       ["#ff5555", "#ff5555"],
+                       ["#bc13fe", "#bc13fe"], # Group down color
                        # border line color for other tab and odd widgets
                        ["#8d62a9", "#8d62a9"],
                        ["#668bd7", "#668bd7"],  # color for the even widgets
                        ["#e1acff", "#e1acff"]]  # window name
+
         self.termite = "termite"
 
     def init_widgets_list(self):
@@ -40,9 +41,15 @@ class MyWidgets:
                 background=self.colors[0]
             ),
             widget.Image(
-                filename="~/.config/qtile/icons/python.png",
+                filename="~/.config/qtile/icons/terminal-iconx14.png",
                 mouse_callbacks={
-                    'Button1': lambda qtile: qtile.cmd_spawn('dmenu_run')}
+                    'Button1': lambda qtile: qtile.cmd_spawn('dmenu_run -p "Run: "')}
+            ),
+            widget.Sep(
+                linewidth=0,
+                padding=5,
+                foreground=self.colors[2],
+                background=self.colors[0]
             ),
             widget.GroupBox(
                 font="Ubuntu Bold",

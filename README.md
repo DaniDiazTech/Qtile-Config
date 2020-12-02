@@ -2,9 +2,9 @@
 
 ## Screenshots
 
-![Qtile Screenshots](../assets/qtile-2.png)
+![Qtile Screenshots](../assets/Qtile-new1.png)
 
-![Qtile Screenshots](../assets/Qtile-1.png)
+![Qtile Screenshots](../assets/Qtile-new2.png)
 
 ## What is Qtile?
 

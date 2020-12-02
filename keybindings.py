@@ -35,8 +35,13 @@ class Keybindings:
             Key([self.mod], "n", lazy.layout.normalize()),
             Key([self.mod], "o", lazy.layout.maximize()),
             Key([self.mod, "shift"], "space", lazy.layout.flip()),
-            
-            
+             
+            ############   BINDINGS FOR FLOATING   ############## 
+            Key([self.mod, "shift"], "f", lazy.window.toggle_floating(),
+             desc='toggle floating'),
+            Key([self.mod, "shift"], "g", lazy.window.toggle_fullscreen(),
+             desc='toggle fullscreen'),
+
             # Move screen to next and previous workspace
             Key([self.control], "k", lazy.screen.next_group(),
                 desc="Move screen to the next workspace"),

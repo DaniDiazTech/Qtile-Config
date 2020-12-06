@@ -83,9 +83,10 @@ class Keybindings:
             # Most apps are opened with Super + left self.alt keys
             Key([self.mod, self.alt], "d", lazy.spawn(
                 "emacs"), desc="Open Doom Emacs"),
-            Key([self.mod, self.alt], "v", lazy.spawn("gvim"), desc="Open Gvim"),
             Key([self.mod, self.alt], "o", lazy.spawn(
                 "env LIBGL_ALWAYS_SOFTWARE=1 obs"), desc="Open Obs Studio"),
+            Key([self.mod, self.alt], "v", lazy.spawn(
+                "gvim"), desc="Open Gvim"),
             Key([self.mod, self.alt], "n", lazy.spawn(
                 self.termite + " -e nvim"), desc="Open Neovim"),
             Key([self.mod, self.alt], "f", lazy.spawn(self.termite + \

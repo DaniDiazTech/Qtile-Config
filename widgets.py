@@ -67,7 +67,7 @@ class MyWidgets:
                 borderwidth=3,
                 active=self.colors[2],
                 inactive=self.colors[2],
-                rounded=False,
+                rounded=True,
                 highlight_color=self.colors[1],
                 highlight_method="line",
                 this_current_screen_border=self.colors[3],

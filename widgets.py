@@ -1,5 +1,5 @@
 import os
-from libqtile import bar, layout, widget
+from libqtile import bar, widget
 from libqtile.lazy import lazy
 from libqtile.config import Screen
 

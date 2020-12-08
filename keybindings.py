@@ -20,7 +20,6 @@ class Keybindings:
 
         #################### CUSTOM KEYS  ##########################
         return [
-            
             ############   BINDINGS FOR MONADTALL   ##############
             Key([self.mod], "h", lazy.layout.left()),
             Key([self.mod], "l", lazy.layout.right()),
@@ -35,12 +34,12 @@ class Keybindings:
             Key([self.mod], "n", lazy.layout.normalize()),
             Key([self.mod], "o", lazy.layout.maximize()),
             Key([self.mod, "shift"], "space", lazy.layout.flip()),
-             
-            ############   BINDINGS FOR FLOATING   ############## 
+
+            ############   BINDINGS FOR FLOATING   ##############
             Key([self.mod, "shift"], "f", lazy.window.toggle_floating(),
-             desc='toggle floating'),
+                desc='toggle floating'),
             Key([self.mod, "shift"], "g", lazy.window.toggle_fullscreen(),
-             desc='toggle fullscreen'),
+                desc='toggle fullscreen'),
 
             # Move screen to next and previous workspace
             Key([self.control], "k", lazy.screen.next_group(),
@@ -53,7 +52,6 @@ class Keybindings:
                 desc="Move screen to the next workspace"),
             Key([self.control, self.shift], "j", Functions.window_to_prev_group(),
                 desc="Move screen to the previous workspace"),
-            
             # Kill Functions
             Key([self.mod, self.altgr], "c", Functions.kill_all_windows_minus_current(),
                 desc="Kill all windows except current in the workspace"),
@@ -66,8 +64,8 @@ class Keybindings:
 
 
             # Basic Commands
-            Key([self.mod], "w",  lazy.window.kill(), desc="Kill focused window"),
-            
+            Key([self.mod], "w",  lazy.window.kill(),
+                desc="Kill focused window"),
             Key([self.mod], "Return", lazy.spawn(
                 self.termite), desc="Launch terminal"),
             Key([self.mod, "control"], "r",
@@ -83,9 +81,10 @@ class Keybindings:
             # Most apps are opened with Super + left self.alt keys
             Key([self.mod, self.alt], "d", lazy.spawn(
                 "emacs"), desc="Open Doom Emacs"),
-            Key([self.mod, self.alt], "v", lazy.spawn("gvim"), desc="Open Gvim"),
             Key([self.mod, self.alt], "o", lazy.spawn(
                 "env LIBGL_ALWAYS_SOFTWARE=1 obs"), desc="Open Obs Studio"),
+            Key([self.mod, self.alt], "v", lazy.spawn(
+                "gvim"), desc="Open Gvim"),
             Key([self.mod, self.alt], "n", lazy.spawn(
                 self.termite + " -e nvim"), desc="Open Neovim"),
             Key([self.mod, self.alt], "f", lazy.spawn(self.termite + \
@@ -116,7 +115,6 @@ class Keybindings:
             Key([self.mod, self.alt], "y",
                 lazy.spawn(PWA.youtube()),
                 desc="Open Youtube PWA"),
-            
             Key([self.mod, self.alt], "l",
                 lazy.spawn(PWA.notion()),
                 desc="Open my custom Notion PWA"),
@@ -125,11 +123,14 @@ class Keybindings:
             # Media hotkeys
             Key([self.mod], 'Up', lazy.spawn('pulseaudio-ctl up 5')),
             Key([self.mod], 'Down', lazy.spawn('pulseaudio-ctl down 5')),
+            Key([self.altgr], "space", lazy.spawn(
+                'play-pause')),
 
             # Screenshots
             Key([], "Print", lazy.spawn('xfce4-screenshooter')),
             Key([self.alt], "Print", lazy.spawn('xfce4-screenshooter -f -c')),
-            Key([self.shift], "Print", lazy.spawn("xfce4-screenshooter -f -s /home/daniel/Pictures/Screenshots/")),
+            Key([self.shift], "Print", lazy.spawncmd(
+                "xfce4-screenshooter -f -s /home/daniel/Pictures/Screenshots/")),
         ]
 
     def init_keys_groups(self, group_names):

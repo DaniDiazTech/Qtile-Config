@@ -64,7 +64,7 @@ class Keybindings:
 
 
             # Basic Commands
-            Key([self.mod], "w",  lazy.window.kill(),
+            Key([self.mod], "w", lazy.window.kill(),
                 desc="Kill focused window"),
             Key([self.mod], "Return", lazy.spawn(
                 self.termite), desc="Launch terminal"),
@@ -75,7 +75,8 @@ class Keybindings:
             Key([self.mod], "space", lazy.spawn('rofi -modi "drun,run,window,ssh" -show drun'),
                 desc="Run Rofi"),
 
-            ### THESE ARE MY PREFERED APPS YOU CAN SWITCH KEYBINDINGS JUST BY TYPING THE PATH TO YOUR APPS #####
+            # THESE ARE MY PREFERED APPS YOU CAN SWITCH KEYBINDINGS JUST
+            # BY TYPING THE PATH TO YOUR APPS #####
             # Applications hotkeys
             Key([self.mod], "e", lazy.spawn("thunar"), desc="Open Thunar"),
             # Most apps are opened with Super + left self.alt keys
@@ -97,8 +98,10 @@ class Keybindings:
                 "pycharm"), desc="Open Pycharm CE"),
             Key([self.mod, self.alt], "a", lazy.spawn("pavucontrol"),
                 desc="Open Pulse audio GUI controller"),
-            Key([self.mod, self.alt], "e", lazy.spawn("emacs ~/.config/qtile/config.py"),
-                desc="Open Qtile config file on emacs"),
+            Key([self.mod, self.alt], "e", lazy.spawn("vim -g .config/qtile/config.py"),
+                desc="Open Qtile config file in gvim"),
+            Key([self.mod, self.alt], "r", lazy.spawn("vim -g .vimrc"),
+                desc="Open Qtile config file in gvim"),
 
 
             # PWA hotkeys

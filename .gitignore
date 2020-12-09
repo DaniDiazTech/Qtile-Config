@@ -1,0 +1,6 @@
+# ignores idea folder
+.idea/
+# Ignores python cache
+__pycache__
+
+

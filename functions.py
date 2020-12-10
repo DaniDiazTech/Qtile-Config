@@ -72,6 +72,10 @@ class PWA:
     def youtube():
         return "brave --user-data-dir=Default --app=https://www.youtube.com"
 
+    @staticmethod
+    def calendar():
+        return "/usr/lib/brave-beta/brave --profile-directory=Default --app-id=kjbdgfilnfhdoflbpgamdcdgpehopbep"
+
 
 if __name__ == "__main__":
     pass

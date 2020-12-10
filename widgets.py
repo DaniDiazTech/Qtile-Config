@@ -31,7 +31,9 @@ class MyWidgets:
                        ["#5B2C6F", "#5B2C6F"],
                        ["#f76e5c", "#f76e5c"],
                        ["#F39C12", "#F39C12"],
-                       ["#F7DC6F", "#F7DC6F"], ]
+                       ["#F7DC6F", "#F7DC6F"],
+                       ["#f1ffff", "#f1ffff"],
+                       ["#4c566a", "#4c566a"], ]
 
         self.termite = "termite"
 
@@ -65,17 +67,22 @@ class MyWidgets:
                 padding_y=5,
                 padding_x=3,
                 borderwidth=3,
-                active=self.colors[2],
-                inactive=self.colors[2],
-                rounded=True,
-                highlight_color=self.colors[1],
-                highlight_method="line",
-                this_current_screen_border=self.colors[3],
+                active=self.colors[-2],
+                inactive=self.colors[-1],
+                # rounded=True,
+                rounded=False,
+                # highlight_color=self.colors[9],
+                # highlight_method="line",
+                highlight_method='block',
+                urgent_alert_method='block',
+                # urgent_border=self.colors[9],
+                this_current_screen_border=self.colors[9],
                 this_screen_border=self.colors[4],
                 other_current_screen_border=self.colors[0],
                 other_screen_border=self.colors[0],
                 foreground=self.colors[2],
-                background=self.colors[0]
+                background=self.colors[0],
+                disable_drag=True
             ),
             widget.Prompt(
                 prompt=lazy.spawncmd(),
@@ -198,7 +205,7 @@ class MyWidgets:
                 foreground=self.colors[7],
                 background=self.colors[8],
                 mouse_callbacks={
-                    "Button1": lambda qtile: qtile.cmd_spawn(PWA.notion())},
+                    "Button1": lambda qtile: qtile.cmd_spawn(PWA.calendar())},
                 format="%B %d  [ %H:%M ]"
             ),
             widget.Sep(

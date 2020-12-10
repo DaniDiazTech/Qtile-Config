@@ -113,6 +113,9 @@ class Keybindings:
             Key([self.mod, self.alt], "m",
                 lazy.spawn(PWA.music()),
                 desc="Open Youtube Music PWA"),
+            Key([self.mod, self.alt], "c",
+                lazy.spawn(PWA.calendar()),
+                desc="Open Calendar PWA"),
 
             # My own created PWA's
             Key([self.mod, self.alt], "y",

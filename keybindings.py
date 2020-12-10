@@ -145,9 +145,8 @@ class Keybindings:
         for icon in group_names:
             index = (icon[0]).lower()
 
-            keys += [
-                Key([self.mod, 'control'], index, lazy.group[icon].toscreen()),
-                Key([self.mod, 'shift'], index, lazy.window.togroup(icon, switch_group=True))]
+            keys += [Key([self.mod, 'control'], index, lazy.group[icon].toscreen()), Key(
+                [self.mod, 'shift'], index, lazy.window.togroup(icon, switch_group=True))]
 
         return keys
 

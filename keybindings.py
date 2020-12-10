@@ -113,7 +113,7 @@ class Keybindings:
             Key([self.mod, self.alt], "m",
                 lazy.spawn(PWA.music()),
                 desc="Open Youtube Music PWA"),
-            Key([self.mod, self.alt], "c",
+            Key([self.mod, self.alt], "t",
                 lazy.spawn(PWA.calendar()),
                 desc="Open Calendar PWA"),
 
@@ -131,7 +131,8 @@ class Keybindings:
             Key([self.mod], 'Down', lazy.spawn('pulseaudio-ctl down 5')),
             Key([self.altgr], "space", lazy.spawn(
                 'play-pause')),
-
+            # Makes reference to play-pause script
+            # You can find it in my scripts repository
             # Screenshots
             Key([], "Print", lazy.spawn('xfce4-screenshooter')),
             Key([self.alt], "Print", lazy.spawn('xfce4-screenshooter -f -c')),

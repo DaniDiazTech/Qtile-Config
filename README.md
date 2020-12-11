@@ -61,7 +61,7 @@ You can manage the autostart applications modyfing the  _autostart.sh_ file.
 
 ``` bash
 #! /bin/bash 
-picom &
+picom --experimental-backend &
 nitrogen --restore &
 ```
 Remember to set a wallpaper with nitrogen so every startup your wallpaper will be restored.

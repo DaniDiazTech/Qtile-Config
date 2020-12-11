@@ -1,13 +1,14 @@
 from libqtile import layout
 
+
 class Layouts:
     def __init__(self):
         self.default = {
-        "border_width": 2,
-        "margin": 6,
-        "border_focus": "#668bd7",
-        "border_normal": "1D2330"} 
-        
+            "border_width": 2,
+            "margin": 8,
+            "border_focus": "#668bd7",
+            "border_normal": "1D2330"}
+
     def init_layouts(self):
         """
         Returns the layouts variable
@@ -27,5 +28,6 @@ class Layouts:
             # layout.Tile(),
             # layout.VerticalTile(),
             # layout.Zoomy(),
-            ]
+        ]
         return layouts
+

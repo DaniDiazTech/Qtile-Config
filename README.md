@@ -1,16 +1,18 @@
 # Qtile configuration file
 
-## Screenshots
+## Screenshots 🖥️
 
-![Qtile Screenshots](../assets/Qtile-new1.png)
+![Qtile Screenshots](../assets/Remake-1.png)
 
-![Qtile Screenshots](../assets/Qtile-new2.png)
+![Qtile Screenshots](../assets/Remake-2.png)
+
+![Qtile Screenshots](../assets/Remake-3.png)
 
 ## What is Qtile?
 
-[Qtile](http://www.qtile.org/) is a window manager written and configured in python, it is really hackable and lightweight, you can install it among other desktop environments and [standalone WM's](https://wiki.archlinux.org/index.php/window_manager). 
+[Qtile](http://www.qtile.org/) is a window manager  written and configured in Python🐍 , it is really hackable and lightweight, you can install it among other desktop environments and [standalone WM's](https://wiki.archlinux.org/index.php/window_manager). 
 
-## Installation
+## Installation 🐧
 Install Qtile and other dependencies.
 
 ### For Arch Linux
@@ -30,12 +32,12 @@ For Debian, Ubuntu and derivates [here](http://docs.qtile.org/en/latest/manual/i
 ```
 sudo apt install picom rofi xserver-xephyr nitrogen
 ```
-## Cloning the config files
+## Cloning the config files 📁
 ```
 git clone git@github.com:Daniel1404/Qtile-Config.git ~/.config/qtile
 ```
 
-## Testing 
+## Testing 🧪
 
 If you want to test the config files, without crash your current qtile instance, type the following commands:
 
@@ -45,7 +47,7 @@ DISPLAY=:1 qtile "/PATH/TO/TEST-CONFIG"
 ```
 Once you've done all these steps you  should have a cool Qtile instance, but most keybindings won't work, because probably you don´t have the software I use, you could install [my software]() or re-map the keybindings in [keybindings.py](https://github.com/Daniel1404/Qtile-Config/blob/main/keybindings.py) file.
 
-## Startup 
+## Startup  🏁
 
 One of the most important functions in the config is the startup function located  at the button of _config.py_.
 
@@ -63,3 +65,5 @@ picom &
 nitrogen --restore &
 ```
 Remember to set a wallpaper with nitrogen so every startup your wallpaper will be restored.
+
+

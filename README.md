@@ -6,7 +6,7 @@
 
 ![Qtile Screenshots](../assets/Remake-2.png)
 
-![Qtile Screenshots](../assets/Remake-3.png)
+![Qtile Screenshots](../assets/REMAKE-3.png)
 
 ## What is Qtile?
 

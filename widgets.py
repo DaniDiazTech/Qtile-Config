@@ -28,7 +28,7 @@ class MyWidgets:
                        ["#e1acff", "#e1acff"],  # window name
 
                        ["#000000", "#000000"],
-                       ["#5B2C6F", "#5B2C6F"],
+                       ["#AD343E", "#AD343E"],
                        ["#f76e5c", "#f76e5c"],
                        ["#F39C12", "#F39C12"],
                        ["#F7DC6F", "#F7DC6F"],

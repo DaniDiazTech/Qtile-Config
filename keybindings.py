@@ -55,11 +55,11 @@ class Keybindings:
             # Kill Functions
             Key([self.mod, self.altgr], "c", Functions.kill_all_windows_minus_current(),
                 desc="Kill all windows except current in the workspace"),
-            Key([self.mod, self.altgr], "w", Functions.kill_all_windows(),
+            Key([self.mod, self.altgr], "x", Functions.kill_all_windows(),
                 desc="Kill all windows except current in the workspace"),
 
             # Toggle between different layouts as defined below
-            Key([self.mod, self.alt], "Tab", lazy.next_layout(),
+            Key([self.mod], "Tab", lazy.next_layout(),
                 desc="Toggle between layouts"),
 
 
@@ -138,6 +138,20 @@ class Keybindings:
             Key([self.alt], "Print", lazy.spawn('xfce4-screenshooter -f -c')),
             Key([self.shift], "Print", lazy.spawncmd(
                 "xfce4-screenshooter -f -s /home/daniel/Pictures/Screenshots/")),
+            # ------------ Hardware Configs ------------
+
+            # Volume
+            Key([], "XF86AudioLowerVolume", lazy.spawn(
+                "pactl set-sink-volume @DEFAULT_SINK@ -5%")),
+            Key([], "XF86AudioRaiseVolume", lazy.spawn(
+                "pactl set-sink-volume @DEFAULT_SINK@ +5%")),
+            Key([], "XF86AudioMute", lazy.spawn(
+                "pactl set-sink-mute @DEFAULT_SINK@ toggle")),
+
+            # Brightness
+            Key([], "XF86MonBrightnessUp", lazy.spawn("brightnessctl set +10%")),
+            Key([], "XF86MonBrightnessDown",
+                lazy.spawn("brightnessctl set 10%-")),
         ]
 
     def init_keys_groups(self, group_names):

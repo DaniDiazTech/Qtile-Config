@@ -14,11 +14,11 @@ class Layouts:
         Returns the layouts variable
         """
         layouts = [
-            layout.MonadTall(**self.default),
             layout.Max(**self.default),
+            layout.MonadTall(**self.default),
             layout.floating.Floating(**self.default),
             layout.TreeTab(**self.default),
-            layout.Stack(num_stacks=2),
+            # layout.Stack(num_stacks=2),
             # Try more layouts by unleashing below layouts.
             # layout.Bsp(),
             # layout.Columns(),
@@ -30,4 +30,3 @@ class Layouts:
             # layout.Zoomy(),
         ]
         return layouts
-

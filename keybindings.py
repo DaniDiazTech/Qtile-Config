@@ -124,6 +124,9 @@ class Keybindings:
             Key([self.mod, self.alt], "l",
                 lazy.spawn(PWA.notion()),
                 desc="Open my custom Notion PWA"),
+            Key([self.mod, self.alt], "h",
+                lazy.spawn(PWA.habitica()),
+                desc="Open my custom Habitica PWA"),
 
 
             # Media hotkeys

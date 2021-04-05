@@ -76,6 +76,10 @@ class PWA:
     def calendar():
         return "/usr/lib/brave-beta/brave --profile-directory=Default --app-id=kjbdgfilnfhdoflbpgamdcdgpehopbep"
 
+    @staticmethod
+    def habitica():
+        return "/usr/lib/brave-beta/brave --profile-directory=Default --app-id=pdigihnmoiplkhocekidmdcmhchhdpjo"
+
 
 if __name__ == "__main__":
     pass

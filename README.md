@@ -34,7 +34,7 @@ sudo apt install picom rofi xserver-xephyr nitrogen
 ```
 ## Cloning the config files 📁
 ```
-git clone git@github.com:Daniel1404/Qtile-Config.git ~/.config/qtile
+git clone https://github.com/Daniel1404/Qtile-Config.git ~/.config/qtile
 ```
 
 ## Testing 🧪

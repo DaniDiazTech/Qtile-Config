@@ -51,6 +51,7 @@ from layouts import Layouts
 from groups import CreateGroups
 from icons import group_icons
 
+ 
 ###### MAIN ######
 if __name__ in ["config", "__main__"]:
     # Initializes objects

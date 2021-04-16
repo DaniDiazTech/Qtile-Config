@@ -1,0 +1,5 @@
+picom
+nitrogen
+megasync
+xfce4-clipman
+playerctl 

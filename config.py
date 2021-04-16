@@ -108,7 +108,7 @@ focus_on_window_activation = "smart"
 @hook.subscribe.startup_once
 def start_once():
     home = os.path.expanduser('~')
-    subprocess.call([home + '/.config/qtile/autostart.sh'])
+    subprocess.call([home + '/.local/bin/autostart'])
 
 @hook.subscribe.client_new
 def dialogs(window):

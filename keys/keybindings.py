@@ -4,17 +4,18 @@ from libqtile.lazy import lazy
 
 # Import the function that move the window to the next and prev group
 from functions import Functions, PWA
-# from icons import group_icons
+
+from config_keybindings import *
 
 
 class Keybindings:
     def __init__(self):
-        self.mod = "mod4"
-        self.alt = "mod1"
-        self.altgr = "mod5"
-        self.termite = "termite"
-        self.shift = "shift"
-        self.control = "control"
+        self.mod = MOD
+        self.alt = ALT
+        self.altgr = ALTGR
+        self.terminal = TERMINAL
+        self.shift = SHIFT
+        self.control = CONTROL
 
     def init_keys(self):
 
@@ -67,7 +68,7 @@ class Keybindings:
             Key([self.mod], "w", lazy.window.kill(),
                 desc="Kill focused window"),
             Key([self.mod], "Return", lazy.spawn(
-                self.termite), desc="Launch terminal"),
+                self.terminal), desc="Launch terminal"),
             Key([self.mod, "control"], "r",
                 lazy.restart(), desc="Restart qtile"),
             Key([self.mod, "control"], "q",
@@ -87,8 +88,8 @@ class Keybindings:
             Key([self.mod, self.alt], "v", lazy.spawn(
                 "gvim"), desc="Open Gvim"),
             Key([self.mod, self.alt], "n", lazy.spawn(
-                self.termite + " -e nvim"), desc="Open Neovim"),
-            Key([self.mod, self.alt], "f", lazy.spawn(self.termite + \
+                self.terminal + " -e nvim"), desc="Open Neovim"),
+            Key([self.mod, self.alt], "f", lazy.spawn(self.terminal + \
                                                       " -e ./.config/vifm/scripts/vifmrun"), desc="Open vifm"),
             Key([self.mod, self.alt], "b", lazy.spawn(
                 "brave"), desc="Open Brave"),

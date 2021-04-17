@@ -4,3 +4,4 @@ megasync
 xfce4-clipman
 playerctl 
 pulseaudio-ctl
+bat

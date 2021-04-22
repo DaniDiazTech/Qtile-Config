@@ -17,6 +17,9 @@ class Keybindings:
         self.shift = SHIFT
         self.control = CONTROL
 
+        # All keys are stored keys
+        self.keys = []
+
     def init_keys(self):
 
         #################### CUSTOM KEYS  ##########################
@@ -142,6 +145,7 @@ class Keybindings:
             Key([self.alt], "Print", lazy.spawn('xfce4-screenshooter -f -c')),
             Key([self.shift], "Print", lazy.spawncmd(
                 "xfce4-screenshooter -f -s /home/daniel/Pictures/Screenshots/")),
+                
             # ------------ Hardware Configs ------------
 
             # Volume
@@ -175,7 +179,7 @@ class Keybindings:
 
 class Mouse:
     def __init__(self):
-        self.mod = "mod4"
+        self.mod = MOD
 
     def init_mouse(self):
         mouse = [

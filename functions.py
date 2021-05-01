@@ -62,11 +62,11 @@ class PWA:
 
     @staticmethod
     def music():
-        return "/usr/lib/brave-beta/brave --profile-directory=Default --app-id=cinhimbnkkaeohfgghhklpknlkffjgod"
+        return "/usr/lib/brave-beta/brave --profile-directory=Default --app=https://music.youtube.com/"
 
     @staticmethod
     def spotify():
-        return "/usr/lib/brave-beta/brave --profile-directory=Default --app-id=pjibgclleladliembfgfagdaldikeohf"
+        return "/usr/lib/brave-beta/brave --profile-directory=Default --app=https://open.spotify.com/"
 
     @staticmethod
     def youtube():
@@ -74,12 +74,12 @@ class PWA:
 
     @staticmethod
     def calendar():
-        return "/usr/lib/brave-beta/brave --profile-directory=Default --app-id=kjbdgfilnfhdoflbpgamdcdgpehopbep"
+        return "/usr/lib/brave-beta/brave --profile-directory=Default --app=https://calendar.google.com/calendar/"
 
     @staticmethod
     def habitica():
-        return "/usr/lib/brave-beta/brave --profile-directory=Default --app-id=pdigihnmoiplkhocekidmdcmhchhdpjo"
+        return "/usr/lib/brave-beta/brave --profile-directory=Default --app=https://habitica.com/"
 
 
 if __name__ == "__main__":
-    pass
+    print("This is an utilities module")

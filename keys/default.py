@@ -17,8 +17,6 @@ KILL_KEY       = MOD
 
 SWAP_KEY       = SHIFT
 FLOATING_KEY   = SHIFT
-GROUPS_KEY     = CONTROL
-SWAP_GROUP_KEY = SHIFT
 
 
 ############   BINDINGS FOR MONADTALL   ##############

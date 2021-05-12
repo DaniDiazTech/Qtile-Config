@@ -18,3 +18,4 @@ run picom --experimental-backend &
 run nitrogen --restore & 
 run megasync
 run xfce4-clipman
+run redshiftgui

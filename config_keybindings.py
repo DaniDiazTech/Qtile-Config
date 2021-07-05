@@ -24,7 +24,7 @@ from os.path import expanduser
 HOME = expanduser("~")
 
 # Define constants here
-TERMINAL = "termite"
+TERMINAL = "xfce4-terminal"
 
 
 # Basic window manager movements
@@ -40,8 +40,8 @@ SHUTDOWN          = "q"
 GROUPS_KEY     = CONTROL
 SWAP_GROUP_KEY = SHIFT
 
-NEXT_GROUP = "k"
-PREV_GROUP = "j"
+NEXT_GROUP = "period"
+PREV_GROUP = "comma"
 
 
 # ------------ Hardware Configs ------------
@@ -71,6 +71,7 @@ APPS = [
     ([MOD, ALT], "p", "pycharm"),
     ([MOD, ALT], "a", "pavucontrol"),
     ([MOD, ALT], "e", "vim -g .config/qtile/config.py"),
+    ([MOD, ALT], "z", "zoom"),
 
     # Media hotkeys
     ([MOD],      "Up", "pulseaudio-ctl up 5"),

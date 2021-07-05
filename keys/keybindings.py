@@ -9,177 +9,146 @@ from config_keybindings import *
 
 
 class Keybindings:
-    def __init__(self):
-        self.mod = MOD
-        self.alt = ALT
-        self.altgr = ALTGR
-        self.terminal = TERMINAL
-        self.shift = SHIFT
-        self.control = CONTROL
 
-        # All keys are stored keys
-        self.keys = []
+    keys = []
+    
+    spawn_keys = SPAWN_KEYS
+    
+    cmd_keys = SPAWN_CMD_KEYS
 
-    def init_keys(self):
+    def create_layout_keys(self):
+        ############   BINDINGS FOR MONADTALL   ##############
+        modifier = [MOVEMENT_KEY]
+        
+        layout_left  = Key(modifier, LEFT, lazy.layout.left())
+        
+        layout_right = Key(modifier, RIGHT, lazy.layout.right())
+        
+        layout_down  = Key(modifier, DOWN, lazy.layout.down())
+        
+        layout_up    = Key(modifier, UP, lazy.layout.up())
 
-        #################### CUSTOM KEYS  ##########################
-        return [
-            ############   BINDINGS FOR MONADTALL   ##############
-            Key([self.mod], "h", lazy.layout.left()),
-            Key([self.mod], "l", lazy.layout.right()),
-            Key([self.mod], "j", lazy.layout.down()),
-            Key([self.mod], "k", lazy.layout.up()),
-            Key([self.mod, "shift"], "h", lazy.layout.swap_left()),
-            Key([self.mod, "shift"], "l", lazy.layout.swap_right()),
-            Key([self.mod, "shift"], "j", lazy.layout.shuffle_down()),
-            Key([self.mod, "shift"], "k", lazy.layout.shuffle_up()),
-            Key([self.mod], "i", lazy.layout.grow()),
-            Key([self.mod], "m", lazy.layout.shrink()),
-            Key([self.mod], "n", lazy.layout.normalize()),
-            Key([self.mod], "o", lazy.layout.maximize()),
-            Key([self.mod, "shift"], "space", lazy.layout.flip()),
+        toogle_layout = Key(modifier, TOOGLE_LAYOUT, lazy.next_layout())
+        
+        self.keys += [layout_left, layout_right, layout_down, layout_up, toogle_layout] 
 
-            ############   BINDINGS FOR FLOATING   ##############
-            Key([self.mod, "shift"], "f", lazy.window.toggle_floating(),
-                desc='toggle floating'),
-            Key([self.mod, "shift"], "g", lazy.window.toggle_fullscreen(),
-                desc='toggle fullscreen'),
+    def create_swap_keys(self):
+        modifier = [MOVEMENT_KEY, SWAP_KEY]
 
-            # Move screen to next and previous workspace
-            Key([self.control], "k", lazy.screen.next_group(),
-                desc="Move screen to the next workspace"),
-            Key([self.control], "j", lazy.screen.prev_group(),
-                desc="Move screen to the previous workspace"),
+        left  = Key(modifier, SWAP_LEFT, lazy.layout.swap_left())
+        right = Key(modifier, SWAP_RIGHT, lazy.layout.swap_right())
+        down  = Key(modifier, SWAP_DOWN, lazy.layout.shuffle_down())
+        up    = Key(modifier, SWAP_UP, lazy.layout.shuffle_up())
+        
+        flip  = Key(modifier, SWAP_FLIP, lazy.layout.flip()) 
 
-            # Move window to next group
-            Key([self.control, self.shift], "k", Functions.window_to_next_group(),
-                desc="Move screen to the next workspace"),
-            Key([self.control, self.shift], "j", Functions.window_to_prev_group(),
-                desc="Move screen to the previous workspace"),
-            # Kill Functions
-            Key([self.mod, self.altgr], "c", Functions.kill_all_windows_minus_current(),
-                desc="Kill all windows except current in the workspace"),
-            Key([self.mod, self.altgr], "x", Functions.kill_all_windows(),
-                desc="Kill all windows except current in the workspace"),
+        self.keys += [left, right, down, up, flip] 
 
-            # Toggle between different layouts as defined below
-            Key([self.mod], "Tab", lazy.next_layout(),
-                desc="Toggle between layouts"),
+    
+    def create_windows_keys(self):
+        
+        modifier = [MOVEMENT_KEY] 
 
+        grow      = Key(modifier, GROW, lazy.layout.grow())
+        shrink    = Key(modifier, SHRINK, lazy.layout.shrink())
+        normalize = Key(modifier, NORMALIZE, lazy.layout.normalize())
+        maximize  = Key(modifier, MAXIMIZE, lazy.layout.maximize())
+        
+        self.keys += [grow, shrink, normalize, maximize] 
+    
+    def create_shutdown_keys(self):
+        
+        shutdown = Key(SHUTDOWN_MODIFIER, SHUTDOWN, lazy.shutdown())
+        restart  = Key(SHUTDOWN_MODIFIER, RESTART, lazy.restart())
+        
+        self.keys += [shutdown, restart]
+    
+    def create_kill_keys(self):
+        modifier = [MOVEMENT_KEY, ALTGR] 
 
-            # Basic Commands
-            Key([self.mod], "w", lazy.window.kill(),
-                desc="Kill focused window"),
-            Key([self.mod], "Return", lazy.spawn(
-                self.terminal), desc="Launch terminal"),
-            Key([self.mod, "control"], "r",
-                lazy.restart(), desc="Restart qtile"),
-            Key([self.mod, "control"], "q",
-                lazy.shutdown(), desc="Shutdown qtile"),
-            Key([self.mod], "space", lazy.spawn('rofi -modi "drun,run,window,ssh" -show drun'),
-                desc="Run Rofi"),
+        all_minus_current = Key(modifier, KILL_ALL_MINUS_CURRENT, 
+                            Functions.kill_all_windows_minus_current())
+        all_              = Key(modifier, KILL_ALL,
+                            Functions.kill_all_windows())
+        current           = Key([KILL_KEY], KILL_CURRENT,
+                                lazy.window.kill())
+       
+        self.keys += [all_minus_current, all_, current] 
 
-            # THESE ARE MY PREFERED APPS YOU CAN SWITCH KEYBINDINGS JUST
-            # BY TYPING THE PATH TO YOUR APPS #####
-            # Applications hotkeys
-            Key([self.mod], "e", lazy.spawn("thunar"), desc="Open Thunar"),
-            # Most apps are opened with Super + left self.alt keys
-            Key([self.mod, self.alt], "d", lazy.spawn(
-                "emacs"), desc="Open Doom Emacs"),
-            Key([self.mod, self.alt], "o", lazy.spawn(
-                "env LIBGL_ALWAYS_SOFTWARE=1 obs"), desc="Open Obs Studio"),
-            Key([self.mod, self.alt], "v", lazy.spawn(
-                "gvim"), desc="Open Gvim"),
-            Key([self.mod, self.alt], "n", lazy.spawn(
-                self.terminal + " -e nvim"), desc="Open Neovim"),
-            Key([self.mod, self.alt], "f", lazy.spawn(self.terminal + \
-                                                      " -e ./.config/vifm/scripts/vifmrun"), desc="Open vifm"),
-            Key([self.mod, self.alt], "b", lazy.spawn(
-                "brave"), desc="Open Brave"),
-            Key([self.mod, self.alt], "c", lazy.spawn(
-                "codium"), desc="Open VS codium"),
-            Key([self.mod, self.alt], "p", lazy.spawn(
-                "pycharm"), desc="Open Pycharm CE"),
-            Key([self.mod, self.alt], "a", lazy.spawn("pavucontrol"),
-                desc="Open Pulse audio GUI controller"),
-            Key([self.mod, self.alt], "e", lazy.spawn("vim -g .config/qtile/config.py"),
-                desc="Open Qtile config file in gvim"),
-            Key([self.mod, self.alt], "r", lazy.spawn("vim -g .vimrc"),
-                desc="Open Qtile config file in gvim"),
+    def create_floating_keys(self):
+        
+        modifier = [MOVEMENT_KEY, FLOATING_KEY]
 
+        floating = Key(modifier, TOOGLE_FLOATING, lazy.window.toggle_floating())
+        full = Key(modifier, TOOGLE_FULL, lazy.window.toggle_fullscreen())
+        
+        self.keys += [floating, full]        
+    
+    def create_groups_keys(self):
+        modifier      = [GROUPS_KEY]
+        swap_modifier = [GROUPS_KEY, SWAP_GROUP_KEY]
 
-            # PWA hotkeys
+        move_next = Key(modifier, NEXT_GROUP, lazy.screen.next_group()) 
+        move_prev = Key(modifier, PREV_GROUP, lazy.screen.prev_group()) 
+        
+        swap_next = Key(swap_modifier, NEXT_GROUP, Functions.window_to_next_group()) 
+        swap_prev = Key(swap_modifier, PREV_GROUP, Functions.window_to_prev_group()) 
 
-            Key([self.mod, self.alt], "s",
-                lazy.spawn(PWA.spotify()),
-                desc="Open Spotify PWA"),  # In others system the PWA id will be different
+        self.keys += [move_next, move_prev, swap_next, swap_prev]
 
-            Key([self.mod, self.alt], "m",
-                lazy.spawn(PWA.music()),
-                desc="Open Youtube Music PWA"),
-            Key([self.mod, self.alt], "t",
-                lazy.spawn(PWA.calendar()),
-                desc="Open Calendar PWA"),
+    def create_spawn_keys(self):
+           
+        for spawn_key in self.spawn_keys:
+            
+            modifier, key, command = spawn_key
 
-            # My own created PWA's
-            Key([self.mod, self.alt], "y",
-                lazy.spawn(PWA.youtube()),
-                desc="Open Youtube PWA"),
-            Key([self.mod, self.alt], "l",
-                lazy.spawn(PWA.notion()),
-                desc="Open my custom Notion PWA"),
-            Key([self.mod, self.alt], "h",
-                lazy.spawn(PWA.habitica()),
-                desc="Open my custom Habitica PWA"),
+            keybinding = Key(modifier, key, lazy.spawn(command)) 
 
+            self.keys.append(keybinding)
+            
+    def create_cmd_keys(self):
+                    
+        for cmd_key in self.cmd_keys:
+            
+            modifier, key, command = cmd_key
 
-            # Media hotkeys
-            Key([self.mod], 'Up', lazy.spawn('pulseaudio-ctl up 5')),
-            Key([self.mod], 'Down', lazy.spawn('pulseaudio-ctl down 5')),
-            Key([self.altgr], "space", lazy.spawn(
-                'play-pause')),
-            # Makes reference to play-pause script
-            # You can find it in my scripts repository
-            # Screenshots
-            Key([], "Print", lazy.spawn('xfce4-screenshooter')),
-            Key([self.alt], "Print", lazy.spawn('xfce4-screenshooter -f -c')),
-            Key([self.shift], "Print", lazy.spawncmd(
-                "xfce4-screenshooter -f -s /home/daniel/Pictures/Screenshots/")),
-                
-            # ------------ Hardware Configs ------------
+            keybinding = Key(modifier, key, lazy.spawncmd(command)) 
 
-            # Volume
-            Key([], "XF86AudioLowerVolume", lazy.spawn(
-                "pactl set-sink-volume @DEFAULT_SINK@ -5%")),
-            Key([], "XF86AudioRaiseVolume", lazy.spawn(
-                "pactl set-sink-volume @DEFAULT_SINK@ +5%")),
-            Key([], "XF86AudioMute", lazy.spawn(
-                "pactl set-sink-mute @DEFAULT_SINK@ toggle")),
-
-            # Brightness
-            Key([], "XF86MonBrightnessUp", lazy.spawn("brightnessctl set +10%")),
-            Key([], "XF86MonBrightnessDown",
-                lazy.spawn("brightnessctl set 10%-")),
-        ]
-
+            self.keys.append(keybinding)
+    
+    
     def init_keys_groups(self, group_names):
         """
         Create bindings to move between groups
         """
-        keys = []
-
+        group_keys = []
         for icon in group_names:
             index = (icon[0]).lower()
 
-            keys += [Key([self.mod, 'control'], index, lazy.group[icon].toscreen()), Key(
-                [self.mod, 'shift'], index, lazy.window.togroup(icon, switch_group=True))]
+            group_keys += [Key([MOVEMENT_KEY, GROUPS_KEY], index, lazy.group[icon].toscreen()), Key(
+                [MOVEMENT_KEY, SWAP_GROUP_KEY], index, lazy.window.togroup(icon, switch_group=True))]
 
-        return keys
+        return group_keys        
+        
+    def init_keys(self):
+        
+        self.create_layout_keys()
+        self.create_swap_keys()
+        self.create_windows_keys()
+        self.create_shutdown_keys()
+        self.create_kill_keys()
+        self.create_floating_keys()
+        self.create_groups_keys()
 
+        self.create_cmd_keys() 
+        self.create_spawn_keys()
+
+        return self.keys
+        
 
 class Mouse:
-    def __init__(self):
-        self.mod = MOD
+    def __init__(self, mod_key=MOD):
+        self.mod = mod_key
 
     def init_mouse(self):
         mouse = [

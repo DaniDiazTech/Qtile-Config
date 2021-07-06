@@ -24,7 +24,7 @@ from os.path import expanduser
 HOME = expanduser("~")
 
 # Define constants here
-TERMINAL = "xfce4-terminal"
+TERMINAL = "alacritty"
 
 
 # Basic window manager movements

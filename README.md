@@ -10,15 +10,16 @@
 
 ## What is Qtile?
 
-[Qtile](http://www.qtile.org/) is a window manager  written and configured in Python🐍 , it is really hackable and lightweight, you can install it among other desktop environments and [standalone WM's](https://wiki.archlinux.org/index.php/window_manager). 
+[Qtile](http://www.qtile.org/) is a window manager  written and configured in Python🐍 , it is really hackable and lightweight, you can install it among other desktop environments and [standalone WM's](https://wiki.archlinux.org/index.php/window_manager).
+
 
 ## Installation 🐧
 Install Qtile and other dependencies.
 
 ### For Arch Linux
 
-```
-sudo pacman -S qtile picom rofi nitrogen xorg-server-xephyr
+```bash
+sudo pacman -S qtile picom rofi nitrogen xorg-server-xephyr ttf-font-awesome
 ```
 
 The [xephyr](https://wiki.archlinux.org/index.php/Xephyr) package is for testing  purposes.
@@ -34,18 +35,18 @@ sudo apt install picom rofi xserver-xephyr nitrogen
 ```
 ## Cloning the config files 📁
 ```
-git clone https://github.com/Daniel1404/Qtile-Config.git ~/.config/qtile
+git clone git@github.com:DaniDiazTech/Qtile-Config.git ~/.config/qtile
 ```
 
 ## Testing 🧪
 
-If you want to test the config files, without crash your current qtile instance, type the following commands:
+If you want to test the config files, without crashing your current qtile instance, type the following commands:
 
 ```
 Xephyr -br -ac -noreset -screen 1280x720 :1 &
 DISPLAY=:1 qtile "/PATH/TO/TEST-CONFIG"
 ```
-Once you've done all these steps you  should have a cool Qtile instance, but most keybindings won't work, because probably you don´t have the software I use, you could install [my software]() or re-map the keybindings in [keybindings.py](https://github.com/Daniel1404/Qtile-Config/blob/main/keybindings.py) file.
+Once you've done all these steps you  should have a cool Qtile instance, but most keybindings won't work, because probably you don´t have the software I use, you could install [my software](https://github.com/DaniDiazTech/Qtile-Config/blob/main/software.txt) or re-map the keybindings in [keybindings.py](https://github.com/Daniel1404/Qtile-Config/blob/main/keybindings.py) file.
 
 ## Startup  🏁
 
@@ -57,13 +58,13 @@ def start_once():
     home = os.path.expanduser('~')
     subprocess.call([home + '/.config/qtile/autostart.sh'])
 ```
-You can manage the autostart applications modyfing the  _autostart.sh_ file.
+
+You can manage the autostart applications editing the  _autostart.sh_ file.
 
 ``` bash
 #! /bin/bash 
 picom --experimental-backend &
 nitrogen --restore &
 ```
+
 Remember to set a wallpaper with nitrogen so every startup your wallpaper will be restored.
-
-

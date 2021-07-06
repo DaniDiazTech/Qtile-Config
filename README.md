@@ -67,4 +67,11 @@ picom --experimental-backend &
 nitrogen --restore &
 ```
 
+You can setup your qtile instance quickly using the `setup.py` file:
+
+```python
+python setup.py
+```
+
 Remember to set a wallpaper with nitrogen so every startup your wallpaper will be restored.
+

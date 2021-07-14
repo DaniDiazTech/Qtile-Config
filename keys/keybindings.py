@@ -87,6 +87,7 @@ class Keybindings:
     def create_groups_keys(self):
         modifier      = [GROUPS_KEY]
         swap_modifier = [GROUPS_KEY, SWAP_GROUP_KEY]
+        screen_modifier = [MOVEMENT_KEY]
 
         move_next = Key(modifier, NEXT_GROUP, lazy.screen.next_group()) 
         move_prev = Key(modifier, PREV_GROUP, lazy.screen.prev_group()) 
@@ -94,7 +95,9 @@ class Keybindings:
         swap_next = Key(swap_modifier, NEXT_GROUP, Functions.window_to_next_group()) 
         swap_prev = Key(swap_modifier, PREV_GROUP, Functions.window_to_prev_group()) 
 
-        self.keys += [move_next, move_prev, swap_next, swap_prev]
+        move_next_screen = Key(screen_modifier, NEXT_GROUP, lazy.next_screen()) 
+
+        self.keys += [move_next, move_prev, swap_next, swap_prev, move_next_screen]
 
     def create_spawn_keys(self):
            

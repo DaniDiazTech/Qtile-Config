@@ -60,7 +60,7 @@ if __name__ in ["config", "__main__"]:
 
 dgroups_key_binder = None
 
-dgroups_app_rules = []  # type: List
+dgroups_app_rules = []  # type: list
 
 follow_mouse_focus = True
 

@@ -106,33 +106,6 @@ class MyWidgets:
                 background=self.colors[0],
                 padding=5
             ),
-            # widget.TextBox(
-            #         text = '',
-            #         background = self.colors[0],
-            #         foreground = self.colors[4],
-            #         padding = 0,
-            #         fontsize = 37
-            #         ),
-            # widget.TextBox(
-            #         text = " ⟳",
-            #         padding = 2,
-            #         foreground = self.colors[2],
-            #         background = self.colors[4],
-            #         fontsize = 14
-            #         ),
-            # # widget.CheckUpdates(
-            # #         update_interval = 1000,
-            # #         foreground = self.colors[2],
-            # #         mouse_callbacks = {'Button1': lambda qtile: qtile.cmd_spawn(self.termite + ' -e sudo pacman -Syu')},
-            # #         background = self.colors[4]
-            # #         ),
-            # widget.TextBox(
-            #         text = "Updates",
-            #         padding = 5,
-            #         mouse_callbacks = {'Button1': lambda qtile: qtile.cmd_spawn(self.termite + ' -e sudo pacman -Syu')},
-            #         foreground = self.colors[2],
-            #         background = self.colors[4]
-            #         ),
             widget.TextBox(
                 text='',
                 background=self.colors[0],
@@ -225,8 +198,20 @@ class MyWidgets:
         widgets_screen = self.init_widgets_list()
         return widgets_screen
 
+    def init_widgets_screen2(self):
+        '''
+        Function that returns the widgets in a list.
+        It can be modified so it is useful if you  have a multimonitor system
+        '''
+        widgets_screen2 = self.init_widgets_screen()
+        del widgets_screen2[7]
+        return widgets_screen2
+
     def init_screen(self):
         '''
         Init the widgets in the screen
         '''
-        return [Screen(top=bar.Bar(widgets=self.init_widgets_screen(), opacity=1.0, size=20))]
+        return [Screen(top=bar.Bar(widgets=self.init_widgets_screen(), opacity=1.0, size=20)),
+                Screen(top=bar.Bar(
+                    widgets=self.init_widgets_screen2(), opacity=1.0, size=20))
+                ]

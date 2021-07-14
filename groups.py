@@ -2,8 +2,7 @@ from libqtile.config import Group
 from icons import group_icons
 
 class CreateGroups:
-    def __init__(self):
-        self.group_names = group_icons 
+    group_names = group_icons 
 
     def init_groups(self):
         """

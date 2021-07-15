@@ -204,7 +204,6 @@ class MyWidgets:
         It can be modified so it is useful if you  have a multimonitor system
         '''
         widgets_screen2 = self.init_widgets_screen()
-        del widgets_screen2[7]
         return widgets_screen2
 
     def init_screen(self):

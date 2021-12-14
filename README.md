@@ -10,10 +10,10 @@
 
 ## What is Qtile?
 
-[Qtile](http://www.qtile.org/) is a window manager  written and configured in Python🐍 , it is really hackable and lightweight, you can install it among other desktop environments and [standalone WM's](https://wiki.archlinux.org/index.php/window_manager).
-
+[Qtile](http://www.qtile.org/) is a window manager written and configured in Python🐍. It is hackable and lightweight, you can install it among other desktop environments and [standalone WM's](https://wiki.archlinux.org/index.php/window_manager).
 
 ## Installation 🐧
+
 Install Qtile and other dependencies.
 
 ### For Arch Linux
@@ -22,9 +22,9 @@ Install Qtile and other dependencies.
 sudo pacman -S qtile picom rofi nitrogen xorg-server-xephyr
 ```
 
-The [xephyr](https://wiki.archlinux.org/index.php/Xephyr) package is for testing  purposes.
+The [xephyr](https://wiki.archlinux.org/index.php/Xephyr) package is for testing purposes.
 
-[Nitrogen](https://wiki.archlinux.org/index.php/nitrogen) Help us to set a cool wallpaper since qtile don´t have a wallpaper manager by default.
+[Nitrogen](https://wiki.archlinux.org/index.php/nitrogen) help us to set a cool wallpaper since Qtile doesn't have a wallpaper manager by default.
 
 <details>
 <summary>More `yay` dependencies</summary>
@@ -38,28 +38,33 @@ yay -S redshiftgui-bin ttf-font-awesome
 ### For Debian, Ubuntu
 
 For Debian, Ubuntu and derivates [here](http://docs.qtile.org/en/latest/manual/install/ubuntu.html) is the qtile installation guide.
+
 #### Dependencies
+
 ```
 sudo apt install picom rofi xserver-xephyr nitrogen
 ```
+
 ## Cloning the config files 📁
+
 ```
 git clone git@github.com:DaniDiazTech/Qtile-Config.git ~/.config/qtile
 ```
 
 ## Testing 🧪
 
-If you want to test the config files, without crashing your current qtile instance, type the following commands:
+If you want to test the config files without crashing your current qtile instance, type the following commands:
 
 ```
 Xephyr -br -ac -noreset -screen 1280x720 :1 &
 DISPLAY=:1 qtile "/PATH/TO/TEST-CONFIG"
 ```
-Once you've done all these steps you  should have a cool Qtile instance, but most keybindings won't work, because probably you don´t have the software I use, you could install [my software](https://github.com/DaniDiazTech/Qtile-Config/blob/main/software.txt) or re-map the keybindings in [keybindings.py](https://github.com/Daniel1404/Qtile-Config/blob/main/keybindings.py) file.
+
+Once you've done all these steps you should have a cool Qtile instance, but most keybindings won't work, because probably you don´t have the software I use, you could install [my software](https://github.com/DaniDiazTech/Qtile-Config/blob/main/software.txt) or re-map the keybindings in [keybindings.py](https://github.com/Daniel1404/Qtile-Config/blob/main/keybindings.py) file.
 
 ## Startup  🏁
 
-One of the most important functions in the config is the startup function located  at the button of _config.py_.
+One of the most important functions in the config is the startup function located at the button of _config.py_.
 
 ``` python
 @hook.subscribe.startup_once
@@ -76,11 +81,10 @@ picom --experimental-backend &
 nitrogen --restore &
 ```
 
-You can setup your qtile instance quickly using the `setup.py` file:
+You can setup your Qtile instance quickly using the `setup.py` file:
 
 ```python
 python setup.py
 ```
 
-Remember to set a wallpaper with nitrogen so every startup your wallpaper will be restored.
-
+Remember to set a wallpaper with nitrogen so every time you boot into Qtile, your wallpaper will be restored.

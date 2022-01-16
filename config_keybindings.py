@@ -81,6 +81,7 @@ APPS = [
     # You can find it in my scripts repository
     ([ALTGR],    "space", "play-pause"),
    
+    # Run "rofi-theme-selector" in terminal to select a theme
     ([MOD], "space", 'rofi -modi "drun,run,window,ssh" -show drun -show-icons'),
     
     # Screenshots

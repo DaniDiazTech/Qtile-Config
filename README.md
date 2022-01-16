@@ -17,23 +17,15 @@
 Install Qtile and other dependencies.
 
 ### For Arch Linux
+All software, one command:
 
 ```bash
-sudo pacman -S qtile picom rofi nitrogen xorg-server-xephyr
+yay -S qtile picom rofi nitrogen xorg-server-xephyr lxappearance-gtk3 megasync python-psutil brave-browser alacritty bat playerctl pulseaudio-ctl 
 ```
 
 The [xephyr](https://wiki.archlinux.org/index.php/Xephyr) package is for testing purposes.
 
 [Nitrogen](https://wiki.archlinux.org/index.php/nitrogen) help us to set a cool wallpaper since Qtile doesn't have a wallpaper manager by default.
-
-<details>
-<summary>More `yay` dependencies</summary>
-
-```bash
-yay -S redshiftgui-bin ttf-font-awesome
-```
-
-</details>
 
 ### For Debian, Ubuntu
 

@@ -81,7 +81,7 @@ APPS = [
     # You can find it in my scripts repository
     ([ALTGR],    "space", "play-pause"),
    
-    ([MOD], "space", 'rofi -modi "drun,run,window,ssh" -show drun'),
+    ([MOD], "space", 'rofi -modi "drun,run,window,ssh" -show drun -show-icons'),
     
     # Screenshots
     ([],         "Print", "xfce4-screenshooter"),

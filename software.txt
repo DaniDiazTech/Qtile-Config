@@ -1,7 +1,11 @@
 picom
 nitrogen
 megasync
-xfce4-clipman
+xfce4-clipman-plugin
 playerctl 
 pulseaudio-ctl
 bat
+python-psutil
+alacritty
+brave-browser
+lxappearance-gtk3

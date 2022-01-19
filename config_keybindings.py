@@ -82,7 +82,7 @@ APPS = [
     ([ALTGR],    "space", "play-pause"),
    
     # Run "rofi-theme-selector" in terminal to select a theme
-    ([MOD], "space", 'rofi -modi "drun,run,window,ssh" -show drun -show-icons'),
+    ([MOD], "space", 'rofi -modi "drun,power-menu:rofi-power-menu,run,window,ssh" -show drun -show-icons'),
     
     # Screenshots
     ([],         "Print", "xfce4-screenshooter"),

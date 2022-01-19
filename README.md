@@ -20,7 +20,7 @@ Install Qtile and other dependencies.
 All software, one command:
 
 ```bash
-yay -S qtile picom rofi nitrogen xorg-server-xephyr lxappearance-gtk3 megasync python-psutil brave-browser alacritty bat playerctl pulseaudio-ctl 
+yay -S qtile picom rofi nitrogen xorg-server-xephyr lxappearance-gtk3 megasync python-psutil brave-browser alacritty bat playerctl pulseaudio-ctl dunst
 ```
 
 The [xephyr](https://wiki.archlinux.org/index.php/Xephyr) package is for testing purposes.

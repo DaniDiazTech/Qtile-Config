@@ -56,7 +56,7 @@ Once you've done all these steps you should have a cool Qtile instance, but most
 
 ## Startup  🏁
 
-One of the most important functions in the config is the startup function located at the button of _config.py_.
+One of the most important functions in the config is the startup function located at the bottom of _config.py_.
 
 ``` python
 @hook.subscribe.startup_once

@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 
-# You can define a letter and it's icon here
+# You can define a letter and its icon here
 group_icons = ["B   ",
                "D  ",
                "T  ",

@@ -23,6 +23,12 @@ All software, one command:
 yay -S qtile picom rofi nitrogen xorg-server-xephyr lxappearance-gtk3 megasync python-psutil brave-browser alacritty bat playerctl pulseaudio-ctl dunst alacritty fish starship neovim pavucontrol flameshot
 ```
 
+Also install Rofi Power menu:
+```
+git clone git@github.com:jluttine/rofi-power-menu.git
+cp rofi-power-menu ~/.local/bin/
+```
+
 The [xephyr](https://wiki.archlinux.org/index.php/Xephyr) package is for testing purposes.
 
 [Nitrogen](https://wiki.archlinux.org/index.php/nitrogen) help us to set a cool wallpaper since Qtile doesn't have a wallpaper manager by default.

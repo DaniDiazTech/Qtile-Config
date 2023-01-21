@@ -107,7 +107,7 @@ class MyWidgets:
                 padding=5
             ),
             widget.TextBox(
-                text='',
+                text='-6',
                 background=self.colors[0],
                 foreground=self.colors[11],
                 padding=0,
@@ -128,7 +128,7 @@ class MyWidgets:
                 padding=5
             ),
             widget.TextBox(
-                text='',
+                text='-6',
                 background=self.colors[11],
                 foreground=self.colors[10],
                 padding=0,
@@ -151,7 +151,7 @@ class MyWidgets:
                 text='',
                 background=self.colors[10],
                 foreground=self.colors[9],
-                padding=0,
+                padding=-6,
                 fontsize=37
             ),
             widget.CurrentLayoutIcon(
@@ -171,7 +171,7 @@ class MyWidgets:
                 text='',
                 foreground=self.colors[8],
                 background=self.colors[9],
-                padding=0,
+                padding=-6,
                 fontsize=37
             ),
             widget.Clock(

@@ -107,10 +107,10 @@ class MyWidgets:
                 padding=5
             ),
             widget.TextBox(
-                text='-6',
+                text='',
                 background=self.colors[0],
                 foreground=self.colors[11],
-                padding=0,
+                padding=-6,
                 fontsize=37
             ),
             widget.TextBox(
@@ -128,10 +128,10 @@ class MyWidgets:
                 padding=5
             ),
             widget.TextBox(
-                text='-6',
+                text='',
                 background=self.colors[11],
                 foreground=self.colors[10],
-                padding=0,
+                padding=-6,
                 fontsize=37
             ),
             widget.TextBox(

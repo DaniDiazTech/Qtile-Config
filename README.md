@@ -2,11 +2,11 @@
 
 ## Screenshots 🖥️
 
-![Qtile Screenshots](../assets/Remake-1.png)
+![Qtile Screenshots](Remake-1.png)
 
-![Qtile Screenshots](../assets/Remake-2.png)
+![Qtile Screenshots](Remake-2.png)
 
-![Qtile Screenshots](../assets/REMAKE-3.png)
+![Qtile Screenshots](REMAKE-3.png)
 
 ## What is Qtile?
 
@@ -19,8 +19,8 @@ Install Qtile and other dependencies.
 ### For Arch Linux
 All software, one command:
 
-```bash
-yay -S qtile picom rofi nitrogen xorg-server-xephyr lxappearance-gtk3 megasync python-psutil brave-browser alacritty bat playerctl pulseaudio-ctl dunst alacritty fish starship neovim pavucontrol flameshot
+```
+yay -S qtile picom rofi nitrogen xorg-server-xephyr lxappearance-gtk3 python-psutil alacritty bat playerctl pulseaudio-ctl dunst alacritty pavucontrol flameshot noto-fonts noto-fonts-cjk
 ```
 
 Also install Rofi Power menu:

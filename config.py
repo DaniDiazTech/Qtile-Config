@@ -4,7 +4,7 @@
 #  ____   ____
 # |  _ \ |  _ \   Copyright (c) 2020 Daniel Diaz
 # | | | || | | |
-# | |_| || |_| |  http://www.github.com/Daniel1404/
+# | |_| || |_| |  http://www.github.com/DaniDiazTech/
 # |____/ |____/
 #
 

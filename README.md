@@ -20,7 +20,10 @@ Install Qtile and other dependencies.
 All software, one command:
 
 ```bash
-yay -S qtile picom rofi nitrogen xorg-server-xephyr lxappearance-gtk3 megasync python-psutil brave-browser alacritty bat playerctl pulseaudio-ctl dunst alacritty fish starship neovim pavucontrol flameshot
+yay -S qtile picom rofi nitrogen xorg-server-xephyr
+lxappearance-gtk3 megasync python-psutil brave-browser alacritty
+bat playerctl pulseaudio-ctl dunst alacritty fish starship neovim
+pavucontrol flameshot noto-fonts-emoji noto-fonts-emoji brightnessctl blueman xfce4-power-manager network-manager-applet xfce4-clipman-plugin
 ```
 
 Also install Rofi Power menu:

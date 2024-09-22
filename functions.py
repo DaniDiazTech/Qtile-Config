@@ -1,4 +1,4 @@
-from libqtile.command import lazy
+from libqtile.lazy import lazy
 # from libqtile.command_client import InteractiveCommandClient
 
 

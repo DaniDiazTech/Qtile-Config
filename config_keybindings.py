@@ -104,8 +104,10 @@ CUSTOM_SPAWN_KEYS = [
     ([MOD, ALT], "m", PWA.music()),
     ([MOD, ALT], "t", PWA.calendar()),
     ([MOD, ALT], "y", PWA.youtube()),
-    ([MOD, ALT], "l", PWA.notion()),
     ([MOD, ALT], "h", PWA.habitica()),
+
+    # Security
+    ([MOD, ALT], "l", "xflock4"),
 ]
 
 

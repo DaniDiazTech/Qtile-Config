@@ -155,15 +155,17 @@ class MyWidgets:
             #     padding=0,
             #     fontsize=37
             # ),
-            widget.CurrentLayoutIcon(
+            # widget.CurrentLayout(
+            #     custom_icon_paths=[os.path.expanduser(
+            #         "~/.config/qtile/icons")],
+            #     foreground=self.colors[0],
+            #     background=self.colors[9],
+            #     padding=0,
+            #     scale=0.7
+            # ),
+            widget.CurrentLayout(
                 custom_icon_paths=[os.path.expanduser(
                     "~/.config/qtile/icons")],
-                foreground=self.colors[0],
-                background=self.colors[9],
-                padding=0,
-                scale=0.7
-            ),
-            widget.CurrentLayout(
                 foreground=self.colors[7],
                 background=self.colors[9],
                 padding=5

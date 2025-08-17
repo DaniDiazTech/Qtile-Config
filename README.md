@@ -58,10 +58,10 @@ If you want to test the config files without crashing your current qtile instanc
 
 ```
 Xephyr -br -ac -noreset -screen 1280x720 :1 &
-DISPLAY=:1 qtile "/PATH/TO/TEST-CONFIG"
+DISPLAY=:1 qtile start
 ```
 
-Once you've done all these steps you should have a cool Qtile instance, but most keybindings won't work, because probably you don´t have the software I use, you could install [my software](https://github.com/DaniDiazTech/Qtile-Config/blob/main/software.txt) or re-map the keybindings in [keybindings.py](https://github.com/Daniel1404/Qtile-Config/blob/main/keybindings.py) file.
+Once you've done all these steps you should have a cool Qtile instance, but most keybindings won't work, because probably you don´t have the software I use, you could install [my software](https://github.com/DaniDiazTech/Qtile-Config/blob/main/software.txt) or re-map the keybindings in [keybindings.py](https://github.com/DaniDiazTech/Qtile-Config/blob/main/keybindings.py) file.
 
 ## Startup  🏁
 
